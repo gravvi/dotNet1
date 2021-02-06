@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Kontakt";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<address>
+    Bonifacego 7<br />
+    Wrocław 55-897<br />
+    <abbr title="Phone">P:</abbr>
+    555.555.555
+</address>
+
+<address>
+    <strong>Wsparcie:</strong>   <a href="cybia255@gmil.com">cybiak.M@gmail.com</a><br />
+   
+</address>
+
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Dane firmy</legend>
+            <div>
+                <label for="CompanyName">Numer Nip:</label>
+                <input type="text" name="CompanyName" value="" />
+            </div>
+            <div>
+                <label for="ContactName">Nazwa firmy:</label>
+                <input type="text" name="ContactName" value="" />
+            </div>
+          
+            <div>
+                <label>&nbsp;</label>
+                <input type="submit" value="wyślij" class="submit" />
+            </div>
+        </fieldset>
+    </form>
+</body>

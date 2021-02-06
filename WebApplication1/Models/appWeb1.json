@@ -1,0 +1,39 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appService_WebApplication120210206105119_name": {
+      "type": "string"
+    },
+    "appServicePlan_ASP-apkaWebowa1-85d2_location": {
+      "type": "string"
+    },
+    "appServicePlan_ASP-apkaWebowa1-85d2_name": {
+      "type": "string"
+    },
+    "appServicePlan_ASP-apkaWebowa1-85d2_resourceGroup": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "location": "[parameters('appServicePlan_ASP-apkaWebowa1-85d2_location')]",
+      "name": "[parameters('appService_WebApplication120210206105119_name')]",
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2015-08-01",
+      "tags": {
+        "[concat('hidden-related:', resourceId(parameters('appServicePlan_ASP-apkaWebowa1-85d2_resourceGroup'),'Microsoft.Web/serverfarms', parameters('appServicePlan_ASP-apkaWebowa1-85d2_name')))]": "empty"
+      },
+      "kind": "app",
+      "properties": {
+        "name": "[parameters('appService_WebApplication120210206105119_name')]",
+        "serverFarmId": "[resourceId(parameters('appServicePlan_ASP-apkaWebowa1-85d2_resourceGroup'),'Microsoft.Web/serverfarms', parameters('appServicePlan_ASP-apkaWebowa1-85d2_name'))]",
+        "kind": "app",
+        "httpsOnly": true
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      }
+    }
+  ]
+}
